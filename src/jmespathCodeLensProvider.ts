@@ -2,14 +2,11 @@
 
 'use strict';
 
-// import { CancellationToken, CodeLens, CodeLensProvider, Command, Range, TextDocument } from 'vscode';
 import { CodeLens, CodeLensProvider, Command, Range, TextDocument } from 'vscode';
-//import * as Rest from 'C:\\Users\\mattb\\.vscode\\extensions\\humao.rest-client-0.22.2\\dist\\extension.js';
 import { Selector } from 'C:/Users/mburleigh/.vscode/extensions/humao.rest-client-0.23.0/dist/src/utils/selector';
 import * as Constants from 'C:/Users/mburleigh/.vscode/extensions/humao.rest-client-0.23.0/dist/src/common/constants';
 
 export class JmespathCodeLensProvider implements CodeLensProvider {
-    //public provideCodeLenses(document: TextDocument, token: CancellationToken): Promise<CodeLens[]> {
     async provideCodeLenses(document: TextDocument): Promise<CodeLens[]> {
         const blocks: CodeLens[] = [];
         const lines: string[] = document.getText().split(Constants.LineSplitterRegex);
@@ -25,24 +22,7 @@ export class JmespathCodeLensProvider implements CodeLensProvider {
             blocks.push(new CodeLens(range, cmd));
         }
 
-        // let c: Command = {
-        //     command: 'extension.helloWorld',
-        //     title: 'Execute Query',
-        // }
-        // blocks.push(new CodeLens(new Range(0, 0, 0, 0), c));
-
         return blocks;
-        // return Promise.resolve(blocks);
-
-        // let c: Command = {
-        //     command: 'extension.helloWorld',
-        //     title: 'Insert console.log',
-        // }
-
-        // let topOfDocument = new Range(0, 0, 0, 0)
-        // let codeLens = new CodeLens(topOfDocument, c)
-
-        // return [codeLens]
     }
 }
 

@@ -4,6 +4,8 @@
 
 import { CodeLens, CodeLensProvider, Command, Range, TextDocument } from 'vscode';
 import { Selector } from 'C:/Users/mburleigh/.vscode/extensions/humao.rest-client-0.23.0/dist/src/utils/selector';
+//import { Selector } from '../../../../../mburleigh/.vscode/extensions/humao.rest-client-0.23.0/dist/src/utils/selector';
+//import { Selector } from '../humao.rest-client-0.23.0/dist/src/utils/selector';
 import * as Constants from 'C:/Users/mburleigh/.vscode/extensions/humao.rest-client-0.23.0/dist/src/common/constants';
 
 export class JmespathCodeLensProvider implements CodeLensProvider {

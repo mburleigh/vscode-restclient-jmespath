@@ -25,7 +25,8 @@ export function activate(context: ExtensionContext) {
 	context.subscriptions.push(commands.registerCommand('extension.runQuery', ((document: TextDocument, range: Range) => queryController.run(range))));
 
 	let docSelector = {
-		language: 'javascript',  // this winn need to be changed to http
+		language: 'javascript',
+		//language: "http",
 		scheme: 'file'
 	};
 	let codelensProviderDisposable = languages.registerCodeLensProvider(

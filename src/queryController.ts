@@ -12,7 +12,10 @@ import * as Constants from 'C:/Users/mburleigh/.vscode/extensions/humao.rest-cli
 // import { RestClientSettings } from '../models/configurationSettings';
 //import { HttpRequest, SerializedHttpRequest } from 'C:/Users/mburleigh/.vscode/extensions/humao.rest-client-0.23.0/dist/src/models/httpRequest';
 //import { HttpResponse } from 'C:/Users/mburleigh/.vscode/extensions/humao.rest-client-0.23.0/dist/src/models/httpResponse';
-//import { RequestParserFactory } from 'C:/Users/mburleigh/.vscode/extensions/humao.rest-client-0.23.0/dist/src/models/requestParserFactory';
+
+import 'fs-extra';  // how to load fs-extra so that requestParserFactory can find it???
+import { RequestParserFactory } from 'C:/Users/mburleigh/.vscode/extensions/humao.rest-client-0.23.0/dist/src/models/requestParserFactory';
+
 //import { RequestVariableCacheKey } from 'C:/Users/mburleigh/.vscode/extensions/humao.rest-client-0.23.0/dist/src/models/requestVariableCacheKey';
 // import { RequestVariableCacheValue } from "../models/requestVariableCacheValue";
 // import { trace } from "../utils/decorator";
@@ -95,14 +98,14 @@ export class QueryController {
             // variables replacement
             //selectedText = await VariableProcessor.processRawRequest(selectedText);
 
-            window.showInformationMessage('request = '+ selectedText);
             window.showInformationMessage('query = '+ jmesQuery);
+            window.showInformationMessage('request = '+ selectedText);
 
             // parse http request
-            // const httpRequest = new RequestParserFactory().createRequestParser(selectedText).parseHttpRequest(selectedText, document.fileName);
-            // if (!httpRequest) {
-            //     return;
-            // }
+            const httpRequest = new RequestParserFactory().createRequestParser(selectedText).parseHttpRequest(selectedText, document.fileName);
+            if (!httpRequest) {
+                return;
+            }
 
             //if (requestVariable) {
             //    httpRequest.requestVariableCacheKey = new RequestVariableCacheKey(requestVariable, document.uri.toString());
